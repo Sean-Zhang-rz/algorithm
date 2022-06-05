@@ -2,20 +2,35 @@ function merge(a, b) {
   const result = [];
   let l = 0;
   let r = 0;
-  while (l < a.length || r < b.length) {
-    if (l >= a.length) {
-      result.push(b[r]);
-      r += 1;
-    } else if (r >= b.length) {
-      result.push(a[l]);
-      l += 1;
-    } else if (a[l] < b[r]) {
-      result.push(a[l]);
-      l += 1;
-    } else if (a[l] > b[r]) {
-      result.push(b[r]);
-      r += 1;
+  // while (l < a.length || r < b.length) {
+
+  //   if (l >= a.length) {
+  //     result.push(b[r]);
+  //     r += 1;
+  //   } else if (r >= b.length) {
+  //     result.push(a[l]);
+  //     l += 1;
+  //   } else if (a[l] < b[r]) {
+  //     result.push(a[l]);
+  //     l += 1;
+  //   } else if (a[l] > b[r]) {
+  //     result.push(b[r]);
+  //     r += 1;
+  //   }
+  // }
+  // 换一种写法
+  while (a.length && b.length) {
+    if (a[0] <= b[0]) {
+      result.push(a.shift());
+    } else {
+      result.push(b.shift());
     }
+  }
+  while (a.length) {
+    result.push(a.shift());
+  }
+  while (b.length) {
+    result.push(b.shift());
   }
   return result;
 }
@@ -25,7 +40,7 @@ function sort(array) {
   const mid = Math.floor(array.length / 2);
   const left = array.slice(0, mid);
   const right = array.slice(mid);
-  return merge(soft(left), soft(right));
+  return merge(sort(left), sort(right));
 }
 
 // 就地操作
@@ -61,4 +76,7 @@ function _merge(array, start, middle, end) {
   }
   return array;
 }
-console.log(_sort([1, 4, 112, 4, 5, 108, 12, 1281, 2]));
+// console.log(_sort([5, 2, 3, 1]));
+// console.log(_sort([5, 1, 1, 2, 0, 0]));
+console.log(sort([5, 2, 3, 1]));
+console.log(sort([5, 1, 1, 2, 0, 0]));
