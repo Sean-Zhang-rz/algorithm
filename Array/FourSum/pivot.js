@@ -13,7 +13,6 @@ function fourSumPivot(nums, target) {
       let left = j + 1;
       let right = n - 1;
       while (left < right) {
-        // console.log(res);
         if (nums[left] + nums[right] === theOther) {
           res.push([nums[i], nums[j], nums[left], nums[right]]);
           while (left < right && nums[left] === nums[left + 1]) left++;
