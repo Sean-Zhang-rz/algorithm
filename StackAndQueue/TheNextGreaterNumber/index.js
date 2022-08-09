@@ -28,7 +28,7 @@ function findLastGreaterNumber (nums){
   if (nums == null || nums.length < 2) return nums;
   const stack = [];
   const res = Array.from({ length: nums.length}).fill(-1)
-  for (let i = nums.length - 1; i >0; i--) {
+  for (let i = nums.length - 1; i >= 0; i--) {
     while (stack.length && nums[stack[stack.length - 1]] < nums[i]) {
       const index = stack.pop();
       res[index] = nums[i]
@@ -41,7 +41,7 @@ function findLastSmallerNumber (nums){
   if (nums == null || nums.length < 2) return nums;
   const stack = [];
   const res = Array.from({ length: nums.length}).fill(-1)
-  for (let i = nums.length - 1; i > 0; i--) {
+  for (let i = nums.length - 1; i >= 0; i--) {
     while (stack.length && nums[stack[stack.length - 1]] > nums[i]) {
       const index = stack.pop();
       res[index] = nums[i]
