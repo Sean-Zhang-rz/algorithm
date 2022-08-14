@@ -14,7 +14,6 @@ function productExceptSelf(nums) {
     answer[i] = left[i] * right[i];
   }
   return answer;
-  console.log(left, right);
 }
 
 // 简化版
