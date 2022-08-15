@@ -1,9 +1,9 @@
-export function Node(val) {
+function Node(val) {
   this.val = val;
   this.next = null;
 }
 
-function LinkedList() {
+function LinkedList(nums) {
   this.head = new Node(null);
   this.tail = new Node(null);
   this.length = 0;
@@ -104,15 +104,12 @@ function LinkedList() {
     }
     return len;
   };
+  if (nums?.length) {
+    for (let i = 0; i < nums.length; i++) {
+      this.add(i, nums[i]);
+    }
+  }
 }
 
-const ll = new LinkedList();
-ll.add(0, 1);
-ll.add(1, 2);
-ll.add(0, 3);
-ll.removeByIndexWithDummyNode(1);
-console.log(ll.getNode(1));
-ll.add(2, 4);
-ll.addWithDummyNode(2, 1);
-console.log(ll.getLength());
-export default LinkedList;
+// export default LinkedList;
+module.exports = LinkedList;
