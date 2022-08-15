@@ -5,7 +5,6 @@ function Node(val) {
 
 function LinkedList(nums) {
   this.head = new Node(null);
-  this.tail = new Node(null);
   this.length = 0;
 
   this.getNode = function (index) {
@@ -83,7 +82,7 @@ function LinkedList(nums) {
     let preNode = dummyNode;
 
     // search前一个节点
-    while (index-- !== 0) preNode = preNode.next;
+    while (index--) preNode = preNode.next;
 
     let nextNode = preNode.next.next;
     preNode.next = nextNode;
@@ -98,7 +97,7 @@ function LinkedList(nums) {
   this.getLengthByTraverse = function () {
     let cur = this.head;
     let len = 0;
-    while (cur != null) {
+    while (cur) {
       cur = cur.next;
       len++;
     }
