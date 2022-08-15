@@ -27,7 +27,7 @@ function LinkedList(nums) {
     const newNode = new Node(val);
     this.length++;
     if (index === 0) {
-      newNode.next = this.head;
+      if (this.head.val) newNode.next = this.head;
       this.head = newNode;
       return;
     }
