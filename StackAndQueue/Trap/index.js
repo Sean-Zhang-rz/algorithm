@@ -1,4 +1,4 @@
-var trap = function (height) {
+function trap(height) {
   if (height == null || height.length === 0) return 0;
   let res = 0;
   let stack = [];
@@ -9,9 +9,11 @@ var trap = function (height) {
       let left = stack[stack.length - 1];
       let h = Math.min(height[left], height[i]) - height[top];
       res += h * (i - left - 1);
+      console.log(i, res);
     }
+
     stack.push(i);
   }
   return res;
-};
+}
 console.log(trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]));
