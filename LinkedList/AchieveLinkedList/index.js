@@ -110,5 +110,4 @@ function LinkedList(nums) {
   }
 }
 
-// export default LinkedList;
 module.exports = LinkedList;
