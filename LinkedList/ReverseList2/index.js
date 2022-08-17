@@ -17,3 +17,6 @@ function reverseList(head, left, right) {
   }
   return dummy.next;
 }
+const l = new LinkedList([1, 2, 3, 4, 5]);
+const list = l.getNode(0);
+console.log(reverseList(list, 2, 4));
