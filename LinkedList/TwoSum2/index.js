@@ -22,7 +22,6 @@ function addTwoNumbers(l1, l2) {
     let temp = dummy.next;
     dummy.next = newNode;
     newNode.next = temp;
-    console.log(newNode);
   }
   return dummy.next;
 }
