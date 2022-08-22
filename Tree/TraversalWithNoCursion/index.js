@@ -28,3 +28,20 @@ function preorderTraversal2(root) {
   }
   return res;
 }
+
+function inorderTraversal(root) {
+  if (!root) return [];
+  let res = [];
+  let nodeStack = [];
+  let node = root;
+  while (node.nodeStack.length || node) {
+    while (node) {
+      nodeStack.push(node);
+      node = node.left;
+    }
+    node = nodeStack.pop();
+    res.push(node.val);
+    node = node.right;
+  }
+  return res;
+}
