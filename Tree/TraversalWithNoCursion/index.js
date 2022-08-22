@@ -45,3 +45,20 @@ function inorderTraversal(root) {
   }
   return res;
 }
+
+function postorderTraversal(root) {
+  if (!root) return [];
+  let s1 = [root];
+  let s2 = [];
+  let res = [];
+  while (s1.length) {
+    const node = s1.pop();
+    s2.push(node.val);
+    if (node.left) s1.push(node.left);
+    if (node.right) s1.push(node.right);
+  }
+  while (s2.length) {
+    res.push(s2.pop());
+  }
+  return res;
+}
