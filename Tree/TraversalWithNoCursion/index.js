@@ -1,4 +1,4 @@
-function preorderTraversal(root) {
+function preorderTraversal1(root) {
   if (!root) return [];
   const res = [];
   const nodeStack = [];
@@ -8,6 +8,23 @@ function preorderTraversal(root) {
     res.push(node.val);
     if (node.right) nodeStack.push(node.right);
     if (node.left) nodeStack.push(node.left);
+  }
+  return res;
+}
+
+function preorderTraversal2(root) {
+  if (!root) return [];
+  let nodeStack = [];
+  let res = [];
+  let node = root;
+  while (nodeStack.length || node) {
+    while (node) {
+      res.push(node.val);
+      nodeStack.push(node);
+      node = node.left;
+    }
+    node = nodeStack.pop();
+    node = node.right;
   }
   return res;
 }
