@@ -33,3 +33,5 @@ function findRoots(inorder, value) {
   }
   return -1;
 }
+
+module.exports = buildTree;
