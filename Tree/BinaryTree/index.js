@@ -45,6 +45,31 @@ class BinaryTree {
       }
     }
   }
+  deleteNode(key) {
+    if (!this.root) return this.root;
+    if (this.root.val < key) {
+      this.root.right = this.deleteNode(this.root.right, key);
+    } else if (this.root.val > key) {
+      this.root.left = this.deleteNode(this.root.left, key);
+    } else {
+      if (!this.root.left && !this.root.right) {
+        this.root = null;
+      } else if (!this.root.right) {
+        this.root = this.root.left;
+      } else if (!this.root.left) {
+        this.root = this.root.right;
+      } else {
+        const minRightNode = getMinValueTreeNode(this.root.right);
+        this.root.val = minRightNode.val;
+        this.root.right = deleteNode(this.root.right, minRightNode.val);
+      }
+    }
+    return this.root;
+  }
+  getMinValueTreeNode(root) {
+    if (!root.left) return root;
+    return getMinValueTreeNode(root.left);
+  }
 }
 // const root = buildTree([4, 2, 1, 3, 7], [1, 2, 3, 4, 7]);
 const root = new TreeNode(4);
