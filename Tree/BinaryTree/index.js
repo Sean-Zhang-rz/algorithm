@@ -21,6 +21,30 @@ class BinaryTree {
     }
     return false;
   }
+  add(value) {
+    if (!this.root) {
+      this.root = new TreeNode(value);
+      return true;
+    }
+    let node = this.root;
+    while (node) {
+      if (node.getValue() === value) {
+        return false;
+      } else if (node.getValue() > value) {
+        if (!node.getLeft()) {
+          node.setLeft(new TreeNode(value));
+          return true;
+        }
+        node = node.getLeft();
+      } else {
+        if (!node.getRight()) {
+          node.setRight(new TreeNode(value));
+          return true;
+        }
+        node = node.getRight();
+      }
+    }
+  }
 }
 // const root = buildTree([4, 2, 1, 3, 7], [1, 2, 3, 4, 7]);
 const root = new TreeNode(4);
