@@ -22,3 +22,14 @@ function divideAndCombine(root) {
     return new Result(true, Math.min(root.val, left.min), Math.max(root.val, right.max));
   }
 }
+
+function isValidBST(root) {
+  if (!root) return true;
+  return helper(root, -Infinity, Infinity);
+}
+
+function helper(root, min, max) {
+  if (!root) return true;
+  if (root.val <= min || root.val >= max) return false;
+  return helper(root.left, min, root.val) && helper(root.val, max);
+}
