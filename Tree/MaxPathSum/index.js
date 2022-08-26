@@ -13,7 +13,7 @@ function divideAndCombine(root){
   const maxRes = Math.max(left, right)
 
   let pathSum = Math.max(maxRes, 0) + root.val
-  let value = Math.max(pathSum, left + right + root.val)
+  let value = Math.max(maxRes, left + right + root.val)
   max = Math.max(Math.max(value, pathSum), max)
   return pathSum
 }
