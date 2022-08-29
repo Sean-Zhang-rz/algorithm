@@ -19,7 +19,7 @@ function helper(preorder, pstart, pend, inorder, istart, iend) {
     pstart + 1,
     leftNodeCounts + pstart,
     inorder,
-    istart + 1,
+    istart,
     rootPos - 1
   );
   // 2c. 划分右子树，中序右子树区间[rootPos + 1, iend]
