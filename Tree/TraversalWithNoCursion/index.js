@@ -1,3 +1,5 @@
+const TreeNode = require('../Tree');
+
 function preorderTraversal1(root) {
   if (!root) return [];
   const res = [];
@@ -6,6 +8,7 @@ function preorderTraversal1(root) {
   while (nodeStack.length) {
     const node = nodeStack.pop();
     res.push(node.val);
+    console.log(res);
     if (node.right) nodeStack.push(node.right);
     if (node.left) nodeStack.push(node.left);
   }
@@ -25,6 +28,7 @@ function preorderTraversal2(root) {
     }
     node = nodeStack.pop();
     node = node.right;
+    console.log(res, node);
   }
   return res;
 }
@@ -62,3 +66,8 @@ function postorderTraversal(root) {
   }
   return res;
 }
+
+const node2 = new TreeNode(3);
+const node1 = new TreeNode(2, node2, null);
+const tree = new TreeNode(1, null, node1);
+console.log(preorderTraversal2(tree));
