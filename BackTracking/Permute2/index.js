@@ -14,7 +14,7 @@ function helper(result, list, nums, visited) {
   }
   for (let i = 0; i < nums.length; i++) {
     // 剪枝
-    if (visited[i] || (i !== 0 && nums[i - 1] === nums[i]) || !visited[i - 1]) continue;
+    if (visited[i] || (i !== 0 && nums[i - 1] === nums[i] && !visited[i - 1])) continue;
     list.push(nums[i]);
     visited[i] = true;
     helper(result, list, nums, visited);
