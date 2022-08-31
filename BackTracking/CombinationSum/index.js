@@ -7,7 +7,10 @@ function combinationSum(candidates, target){
   return result
 }
 function helper(result, list, candidates, target, pos) {
-  if (target === 0) result.push([...list])
+  if (target === 0) {
+    result.push([...list])
+    return
+  }
   if (target < 0) return
   for (let i = pos; i < candidates.length; i++) {
     list.push(candidates[i])
