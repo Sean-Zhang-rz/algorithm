@@ -16,7 +16,7 @@ function helper(result, list, s, set, pos) {
   }
   for (let i = pos; i < s.length; i++) {
     const subStr = s.substring(pos, i + 1);
-    if (set.has(subStr)) continue;
+    if (!set.has(subStr)) continue;
     list.push(subStr);
     helper(result, list, s, set, i + 1);
     list.pop();
