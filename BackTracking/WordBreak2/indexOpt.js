@@ -18,12 +18,17 @@ function helper(memo, s, set, pos) {
 
   for (let i = pos; i < s.length; i++) {
     const subStr = s.substring(pos, i + 1);
+
     if (!set.has(subStr)) continue;
+
     const res = helper(memo, s, set, i + 1);
+
     for (let item of res) {
       result.push(subStr + ' ' + item);
     }
   }
+
   memo.set(pos, result);
+
   return result;
 }
