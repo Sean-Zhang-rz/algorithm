@@ -19,5 +19,5 @@ function deleteNode(root, key) {
 }
 function getRightMin(root) {
   if (!root.left) return root.val;
-  getRightMin(root.left);
+  return getRightMin(root.left);
 }
