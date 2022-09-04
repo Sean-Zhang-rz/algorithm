@@ -12,7 +12,7 @@ function helper(result, list, s, pos) {
     result.push(`${a}.${b}.${c}.${d}`);
   }
   for (let i = pos; i < s.length && i < pos + 3; i++) {
-    const ipPart = s.substring(pos, i + 3);
+    const ipPart = s.substring(pos, i + 1);
     if (isValid(ipPart)) {
       list.push(ipPart);
       helper(result, list, s, i + 1);

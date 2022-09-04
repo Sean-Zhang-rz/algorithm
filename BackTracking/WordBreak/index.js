@@ -11,7 +11,7 @@ function helper(memo, s, set, pos) {
   if (pos === s.length) return true;
   if (memo[pos] !== -1) return memo[pos] === 1;
   for (let i = pos; i < s.length; i++) {
-    if (!set.has(memo[pos])) continue;
+    if (!set.has(s.substring(pos, i + 1))) continue;
     const result = helper(memo, s, set, i + 1);
     if (result) {
       memo[pos] = 1;
