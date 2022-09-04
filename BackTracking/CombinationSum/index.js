@@ -1,20 +1,20 @@
-function combinationSum(candidates, target){
-  const result = []
-  if (!candidates || !candidates.length) return result
-  const list = []
+function combinationSum(candidates, target) {
+  const result = [];
+  if (!candidates || !candidates.length) return result;
+  const list = [];
   candidates.sort((a, b) => a - b);
-  helper(result, list, candidates, target, 0)
-  return result
+  helper(result, list, candidates, target, 0);
+  return result;
 }
 function helper(result, list, candidates, target, pos) {
   if (target === 0) {
-    result.push([...list])
-    return
+    result.push([...list]);
+    return;
   }
-  if (target < 0) return
+  if (target < 0) return;
   for (let i = pos; i < candidates.length; i++) {
-    list.push(candidates[i])
-    helper(result, list, candidates, target - candidates[i], i)
-    list.pop()
+    list.push(candidates[i]);
+    helper(result, list, candidates, target - candidates[i], i);
+    list.pop();
   }
 }
