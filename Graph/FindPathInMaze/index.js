@@ -10,6 +10,8 @@ function findPathInMaze(maze, start, end) {
   const visited = Array.from(new Array(m), () => new Array(n));
   const path = [];
   dfs(result, path, maze, visited, start, end);
+  // dfsOne(path, maze, visited, start, end);
+  // return path
   return result;
 }
 
@@ -19,7 +21,6 @@ function dfs(result, path, maze, visited, cur, end) {
   // 标记
   visited[cur.x][cur.y] = true;
   // 找到单一解
-  console.log(cur.x, cur.y);
   if (cur.x === end.x && cur.y === end.y) {
     result.push([...path]);
     return;
@@ -36,6 +37,27 @@ function dfs(result, path, maze, visited, cur, end) {
     }
   }
 }
+// function dfsOne(path, maze, visited, cur, end) {
+//   // 剪枝
+//   if (maze[cur.x][cur.y] === 1) return;
+//   // 标记
+//   visited[cur.x][cur.y] = true;
+//   // 找到单一解
+//   if (cur.x === end.x && cur.y === end.y) {
+//     return path
+//   }
+//   const dx = [1, 0, -1, 0];
+//   const dy = [0, 1, 0, -1];
+
+//   for (let i = 0; i < 4; i++) {
+//     const newPoint = new Point(cur.x + dx[i], cur.y + dy[i]);
+//     if (checkRange(maze, newPoint) && !visited[newPoint.x][newPoint.y]) {
+//       path.push(newPoint);
+//       dfsOne(path, maze, visited, newPoint, end);
+//       path.pop();
+//     }
+//   }
+// }
 function checkRange(matrix, point) {
   return point.x >= 0 && point.x < matrix.length && point.y >= 0 && point.y < matrix[0].length;
 }
