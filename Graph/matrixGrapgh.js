@@ -5,7 +5,7 @@ class Point {
   }
 }
 function checkRange(matrix, point) {
-  return point.x >= 0 && point.x < matrix.length && y >= 0 && point.y < matrix[0].length;
+  return point.x >= 0 && point.x < matrix.length && point.y >= 0 && point.y < matrix[0].length;
 }
 function dfsInMatrix(matrix) {
   const m = matrix.length;
@@ -20,15 +20,17 @@ function dfsInMatrix(matrix) {
   }
 }
 function dfs(matrix, visited, point) {
-	// 剪枝
-	if (condition) { // do something }
-	visited[point.x][point.y] = true
-	const dx = [1, 0, -1, 0]
-	const dy = [0, 1, 0, -1]
-	for (let i = 0; i < 4; i++) {
-		const newPoint = new Point(point.x + dx[i], point.y + dy[i])
-		if (checkRange(matrix, newPoint) && !visited[newPoint.x][newPoint.y]) {
-			dfs(matrix, visited, newPoint)
-		}
-	}
+  // 剪枝
+  if (condition) {
+    // do something
+  }
+  visited[point.x][point.y] = true;
+  const dx = [1, 0, -1, 0];
+  const dy = [0, 1, 0, -1];
+  for (let i = 0; i < 4; i++) {
+    const newPoint = new Point(point.x + dx[i], point.y + dy[i]);
+    if (checkRange(matrix, newPoint) && !visited[newPoint.x][newPoint.y]) {
+      dfs(matrix, visited, newPoint);
+    }
+  }
 }
