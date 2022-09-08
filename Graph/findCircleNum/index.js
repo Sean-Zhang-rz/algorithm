@@ -3,7 +3,7 @@ function findCircleNumber(isConnectd) {
   const length = isConnectd.length
   const marked = new Array(length)
   for (let i = 0; i < length; i++) {
-    if (!marked) {
+    if (!marked[i]) {
       dfs(isConnectd, i, marked)
       count++
     }
