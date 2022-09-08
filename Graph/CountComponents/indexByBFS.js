@@ -11,16 +11,22 @@ function countComponents(n, edges) {
   const marked = [];
   for (let i = 0; i < n; i++) {
     if (!marked[i]) {
-      dfs(adj, i, marked);
+      bfs(adj, marked, i);
       count++;
     }
   }
   return count;
 }
-
-function dfs(adj, no, marked) {
-  marked[no] = true;
-  for (let adjNodeNo in adj) {
-    if (!marked[no]) dfs(adj, adjNodeNo, marked);
+function bfs(adj, marked, nodeNum) {
+  const queue = [nodeNum];
+  marked[nodeNum] = true;
+  while (queue.length) {
+    const nodeNo = queue.shift();
+    for (let adjNodeNo of adj.get(nodeNo)) {
+      if (!marked[adjNodeNo]) {
+        marked[adjNodeNo] = true;
+        queue.push(adjNodeNo);
+      }
+    }
   }
 }
