@@ -14,6 +14,7 @@ function findPathInMaze(maze, start, end) {
   //   }
   // }
   bfs(maze, visited, start, end);
+  return result;
 }
 
 function bfs(maze, visited, start, end) {
