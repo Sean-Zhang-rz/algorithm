@@ -1,3 +1,1 @@
-function islandPeremeter (grid) {
-
-}
+function islandPeremeter(grid) {}
