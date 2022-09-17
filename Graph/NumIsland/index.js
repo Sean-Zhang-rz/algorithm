@@ -22,7 +22,7 @@ function dfs(grid, visited, x, y) {
   for (let i = 0; i < 4; i++) {
     const newX = dx[i] + x;
     const newY = dy[i] + y;
-    if (checkRange(grid, newX, newY) && !visited[newX][newY]) dfs(grid, visited, newX, newY);
+    if (checkRange(grid, newX, newY) && grid[newX][newY] === '1' && !visited[newX][newY]) dfs(grid, visited, newX, newY);
   }
 }
 
