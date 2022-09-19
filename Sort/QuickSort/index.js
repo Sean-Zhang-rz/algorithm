@@ -1,16 +1,32 @@
-const sort = (arr) => {
-  if (arr.length <= 1) return arr;
-  const mid = Math.floor(arr.length / 2);
-  const midVal = arr.splice(mid, 1)[0];
-  const left = [];
-  const right = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] <= midVal) {
-      left.push(arr[i]);
-    } else {
-      right.push(arr[i]);
+function sort(nums) {
+  if (!nums || !nums.length) return
+  quickSort(nums, 0, nums.length - 1)
+  return nums
+}
+
+function quickSort(nums, start, end) {
+  if (start >= end) return
+  let pivot = partition(nums, start, end)
+  quickSort(nums, start, pivot - 1)
+  quickSort(nums, pivot + 1, end)
+}
+function partition(nums, start, end) {
+  let pivot = nums[end]
+  let j = start - 1
+  for (let i = start; i < end; i++) {
+    if (nums[i] <= pivot) {
+      j = j + 1
+      console.log(i, j);
+      if (i !== j) {
+        swap(nums, i, j)
+      }
     }
   }
-  return sort(left).concat(midVal, sort(right));
-};
-console.log(sort([7, 23, 6, 121, 64, 94, 1, 2435, 1]));
+  if (j + 1 !== end ) swap(nums, j + 1, end)
+  return j + 1
+}
+function swap(nums, i, j) {
+  let temp = nums[i]
+  nums[i] = nums[j]
+  nums[j] = temp
+}
