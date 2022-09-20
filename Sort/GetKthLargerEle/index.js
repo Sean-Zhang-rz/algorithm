@@ -10,7 +10,7 @@ function quickSelect(nums, start, end, k) {
   if (k === num) {
     return nums[index]
   } else if (k < num) {
-    return quickSelect(nums, 0, index - 1, k)
+    return quickSelect(nums, start, index - 1, k)
   } else {
     return quickSelect(nums, index + 1, end, k - num)
   }
