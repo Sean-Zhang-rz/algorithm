@@ -14,7 +14,6 @@ function quickSelect(nums, start, end, k) {
     // 落在高划区， 注意转换
     return quickSelect(nums, index + 1, end, k - num)
   }
-
 }
 function partition(nums, start, end) {
   let pivot = start;
