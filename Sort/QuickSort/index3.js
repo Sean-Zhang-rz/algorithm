@@ -1,8 +1,5 @@
 const sort = (arr) => {
   if (arr.length <= 1) return arr;
-  // const mid = Math.floor(arr.length / 2);
-  // const midVal = arr.splice(mid, 1)[0];
-  const last = arr.length - 1
   const lastValue = arr[arr.length - 1]
   arr.length = arr.length - 1
 

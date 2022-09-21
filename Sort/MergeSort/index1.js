@@ -12,10 +12,10 @@ function mergeSort(nums, start, end) {
   }
 }
 function merge(nums, start, mid, end) {
-  let leftLength = mid - start + 1
-  let rightLength = end - mid
-  let left = []    // nums[start...mid]
-  let right = []   // nums[mid + 1...end]
+  const leftLength = mid - start + 1
+  const rightLength = end - mid
+  const left = []    // nums[start...mid]
+  const right = []   // nums[mid + 1...end]
   for (let i = 0; i < leftLength; i++) {
     left[i] = nums[start + i]
   }
