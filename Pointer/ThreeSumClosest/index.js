@@ -2,7 +2,6 @@ function threeSumClosest(nums, target) {
   if (!nums || !nums.length || nums.length < 3) return 0;
   if (nums.length === 3) return nums[0] + nums[1] + nums[2];
   nums.sort((a, b) => a - b);
-  let min = Infinity;
   let result = Infinity;
   for (let i = 0; i < nums.length - 2; i++) {
     if (i > 0 && nums[i] === nums[i - 1]) continue;
