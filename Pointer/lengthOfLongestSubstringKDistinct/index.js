@@ -1,5 +1,5 @@
-function lengthOfLongestSubstringTwoDistinct(s) {
-  if (!s) return 0;
+function lengthOfLongestSubstringKDistinct(s) {
+  if (!s || k === 0) return 0;
   const map = new Map();
   let j = 0;
   let n = s.length;
@@ -7,7 +7,7 @@ function lengthOfLongestSubstringTwoDistinct(s) {
   for (let i = 0; i < n; i++) {
     while (j < n) {
       const ch = s[j];
-      if (map.size < 2 || map.has(ch)) {
+      if (map.size < k || map.has(ch)) {
         map.set(ch, j);
         result = Math.max(result, j - i + 1);
         j++;
