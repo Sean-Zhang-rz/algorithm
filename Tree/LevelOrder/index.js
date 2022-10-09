@@ -21,7 +21,7 @@ function levelOrder(root) {
       if (node.right) queue.push(node.right);
     }
     // (4) 记录结果
-    result.push(...levelList);
+    result.push(levelList);
   }
   return result;
 }
