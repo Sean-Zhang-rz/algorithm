@@ -8,6 +8,7 @@ function deleteAndEarn(nums) {
   for (let num of nums) {
     values[num] += num;
   }
+  
   const memo = [];
   memo[0] = values[0];
   memo[1] = Math.max(values[0], values[1]);
