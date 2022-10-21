@@ -16,13 +16,10 @@ function partition(nums, start, end) {
   for (let i = start; i < end; i++) {
     if (nums[i] <= pivot) {
       j = j + 1
-      console.log(i, j);
-      if (i !== j) {
-        swap(nums, i, j)
-      }
+      if (i !== j) swap(nums, i, j)
     }
   }
-  if (j + 1 !== end ) swap(nums, j + 1, end)
+  if (j + 1 !== end) swap(nums, j + 1, end)
   return j + 1
 }
 function swap(nums, i, j) {

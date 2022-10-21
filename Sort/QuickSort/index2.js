@@ -1,18 +1,16 @@
-function sort(nums) {
+function sort (nums) {
   if (!nums || !nums.length) return
   quickSort(nums, 0, nums.length - 1)
   return nums
 }
 function quickSort(nums, start, end) {
   if (start >= end) return
-  let pivot = partition(nums, start, end)
-  quickSort(nums, start, pivot - 1)
+  const pivot = partition(nums, start, end)
+  quickSort(nums, start, pivot)
   quickSort(nums, pivot + 1, end)
 }
-
 function partition(nums, start, end) {
-  let pivot = start;
-  let value = nums[pivot]
+  const value = nums[start]
   while (start < end) {
     while (start < end && nums[end] >= value) end--
     nums[start] = nums[end]
