@@ -3,7 +3,7 @@ function lengthOfLIS(nums) {
   if (nums.length === 1) return 1;
   // 制表法
   let result = 0;
-  let max = 0
+  let max = 0;
   const dp = new Array(nums.length).fill(1);
   const count = new Array(nums.length).fill(1);
   for (let i = 0; i < nums.length; i++) {
@@ -12,12 +12,12 @@ function lengthOfLIS(nums) {
       if (nums[i] > nums[j]) {
         // 制表法 -> 判断dp[i] 和 dp[j + 1]的关系
         if (dp[i] < dp[j] + 1) {
-          dp[i] = dp[j]  + 1
+          dp[i] = dp[j] + 1;
           // 找到了相当于新的LIS
-          count[i] = count[j]
-        } else if (dp[i] === dp[j] + 1){
+          count[i] = count[j];
+        } else if (dp[i] === dp[j] + 1) {
           // 又一次遇到了该长度的LIS
-          count[i] += count[j]
+          count[i] += count[j];
         }
       }
     }
@@ -27,7 +27,7 @@ function lengthOfLIS(nums) {
   }
   // 将所有等于最长严格递增子序列的长度count[i]相加
   for (let i = 0; i < dp.length; i++) {
-    if (dp[i] === max) result+= count[i]
+    if (dp[i] === max) result += count[i];
   }
-  return result
+  return result;
 }
