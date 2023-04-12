@@ -20,3 +20,4 @@ MinStack.prototype.top = function () {
 MinStack.prototype.getMin = function () {
   return this.minStack[this.minStack.length - 1];
 };
+
