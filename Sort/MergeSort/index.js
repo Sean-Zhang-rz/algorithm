@@ -1,15 +1,14 @@
 function sort(nums) {
-  if (!nums || !nums.length) return null;
-  const temp = [];
-  mergeSort(nums, temp, 0, nums.length - 1);
-  return nums;
+  if (!nums || !nums.length) return nums
+  mergeSort(nums, [], 0, nums.length - 1)
+  return nums
 }
 function mergeSort(nums, temp, start, end) {
   if (start < end) {
-    const mid = start + Math.floor((end - start) / 2);
-    mergeSort(nums, temp, start, mid);
-    mergeSort(nums, temp, mid + 1, end);
-    merge(nums, temp, start, mid, end);
+    const mid = Math.floor((end - start) / 2) + start
+    mergeSort(nums, temp, start, mid)
+    mergeSort(nums, temp, mid + 1, end)
+    merge(nums, temp, start, mid, end)
   }
 }
 function merge(nums, temp, start, mid, end) {
@@ -17,16 +16,12 @@ function merge(nums, temp, start, mid, end) {
   let right = mid + 1;
   let index = start;
   while (left <= mid && right <= end) {
-    if (nums[left] < nums[right]) {
-      temp[index++] = nums[left++];
-    } else {
-      temp[index++] = nums[right++];
-    }
+    temp[index++] = nums[left] <= nums[right] ? nums[left++] : nums[right++]
   }
   while (left <= mid) temp[index++] = nums[left++];
   while (right <= end) temp[index++] = nums[right++];
   for (let i = start; i <= end; i++) {
-    nums[i] = temp[i];
+    nums[i] = temp[i]
   }
 }
 

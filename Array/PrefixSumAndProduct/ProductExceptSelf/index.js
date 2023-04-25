@@ -20,8 +20,8 @@ function productExceptSelf(nums) {
 function productExceptSelf(nums) {
   if (nums == null || nums.length < 1) return;
   const answer = [1];
-  for (let i = 1; i < nums.length; i++) {
-    answer[i] = answer[i - 1] * nums[i - 1];
+  for (let i = 0; i < nums.length - 1; i++) {
+    answer[i + 1] = answer[i] * nums[i];
   }
   let factor = 1;
   for (let j = nums.length - 1; j >= 0; j--) {
