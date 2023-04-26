@@ -26,7 +26,6 @@ function minWindow (s, t) {
       left++
       console.log(chl, map, left);
     }
-    // console.log(map);
   }
   return minLen === Infinity ? '' : s.substr(minWindowStar, minLen)
 }

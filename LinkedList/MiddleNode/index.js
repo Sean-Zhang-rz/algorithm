@@ -2,13 +2,9 @@ const LinkedList = require('../AchieveLinkedList');
 
 function getMiddleNode(head) {
   let fast = head;
-  let slow = head;
-  while (fast.next && fast.next.next) {
+  let slow = head.next;
+  while (fast && fast.next) {
     fast = fast.next.next;
-    slow = slow.next;
-  }
-  if (fast.next) {
-    fast = fast.next;
     slow = slow.next;
   }
   return slow;
