@@ -1,26 +1,26 @@
 function sortColors(nums) {
-  if (!nums) return
-  let white = 0
-  let red = 0
-  let blue = 0
+  if (!nums) return;
+  let white = 0;
+  let red = 0;
+  let blue = 0;
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] === 0) {
-      red++
+      red++;
     } else if (nums[i] === 1) {
-      white++
+      white++;
     } else {
-      blue++
+      blue++;
     }
   }
-  let index = 0
+  let index = 0;
   for (let i = 0; i < red; i++) {
-    nums[index++] = 0
+    nums[index++] = 0;
   }
   for (let i = 0; i < white; i++) {
-    nums[index++] = 1
+    nums[index++] = 1;
   }
   for (let i = 0; i < blue; i++) {
-    nums[index++] = 2
+    nums[index++] = 2;
   }
-  return nums
+  return nums;
 }
