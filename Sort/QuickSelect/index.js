@@ -27,10 +27,4 @@ function partition(nums, start, end) {
   nums[start] = value;
   return start;
 }
-// console.log(getKthSmallerEle([4, 3, 5, 6, 2, 1, 10, 8, 7, 6, 6, 5], 9));
 console.log(getKthSmallerEle([6, 2, 5, 1, 8, 9, 9, 13, 10, 11], 3));
-// console.log(getKthSmallerEle([6, 2, 5, 1, 8, 9, 9, 13, 10, 11], 3));
-// console.log(getKthSmallerEle([6, 2, 5, 1, 8, 9, 9, 13, 10, 11], 5));
-// console.log(getKthSmallerEle([6, 2, 5, 1, 8, 9, 9, 13, 10, 11], 7));
-// console.log(getKthSmallerEle([6, 2, 5, 1, 8, 9, 9, 13, 10, 11], 9));
-// console.log(getKthSmallerEle([6, 2, 5, 1, 8, 9, 9, 13, 10, 11], 10));
